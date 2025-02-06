@@ -1,0 +1,524 @@
+[03:41:45] Configuring KUnit Kernel ...
+[03:41:45] Building KUnit Kernel ...
+Populating config with:
+$ make ARCH=um O=.kunit olddefconfig
+Building with:
+$ make all compile_commands.json ARCH=um O=.kunit --jobs=6
+../lib/iomap.c:156:5: warning: no previous prototype for ‘ioread64_lo_hi’ [-Wmissing-prototypes]
+  156 | u64 ioread64_lo_hi(const void __iomem *addr)
+      |     ^~~~~~~~~~~~~~
+../lib/iomap.c:163:5: warning: no previous prototype for ‘ioread64_hi_lo’ [-Wmissing-prototypes]
+  163 | u64 ioread64_hi_lo(const void __iomem *addr)
+      |     ^~~~~~~~~~~~~~
+../lib/iomap.c:170:5: warning: no previous prototype for ‘ioread64be_lo_hi’ [-Wmissing-prototypes]
+  170 | u64 ioread64be_lo_hi(const void __iomem *addr)
+      |     ^~~~~~~~~~~~~~~~
+../lib/iomap.c:178:5: warning: no previous prototype for ‘ioread64be_hi_lo’ [-Wmissing-prototypes]
+  178 | u64 ioread64be_hi_lo(const void __iomem *addr)
+      |     ^~~~~~~~~~~~~~~~
+../lib/iomap.c:264:6: warning: no previous prototype for ‘iowrite64_lo_hi’ [-Wmissing-prototypes]
+  264 | void iowrite64_lo_hi(u64 val, void __iomem *addr)
+      |      ^~~~~~~~~~~~~~~
+../lib/iomap.c:272:6: warning: no previous prototype for ‘iowrite64_hi_lo’ [-Wmissing-prototypes]
+  272 | void iowrite64_hi_lo(u64 val, void __iomem *addr)
+      |      ^~~~~~~~~~~~~~~
+../lib/iomap.c:280:6: warning: no previous prototype for ‘iowrite64be_lo_hi’ [-Wmissing-prototypes]
+  280 | void iowrite64be_lo_hi(u64 val, void __iomem *addr)
+      |      ^~~~~~~~~~~~~~~~~
+../lib/iomap.c:288:6: warning: no previous prototype for ‘iowrite64be_hi_lo’ [-Wmissing-prototypes]
+  288 | void iowrite64be_hi_lo(u64 val, void __iomem *addr)
+      |      ^~~~~~~~~~~~~~~~~
+
+[03:42:10] Starting KUnit Kernel (1/1)...
+[03:42:10] ============================================================
+Running tests with:
+$ .kunit/linux kunit.enable=1 mem=1G console=tty kunit_shutdown=halt
+[03:42:10] ================= example_init (1 subtest) =================
+[03:42:10] [PASSED] example_init_test
+[03:42:10] ================== [PASSED] example_init ===================
+[03:42:10] =============== time_test_cases (1 subtest) ================
+[03:42:11] [PASSED] time64_to_tm_test_date_range
+[03:42:11] ================= [PASSED] time_test_cases =================
+[03:42:11] ================== resource (3 subtests) ===================
+[03:42:11] [PASSED] resource_test_union
+[03:42:11] [PASSED] resource_test_intersection
+[03:42:11] [PASSED] resource_test_region_intersects
+[03:42:11] ==================== [PASSED] resource =====================
+[03:42:11] ================ sysctl_test (11 subtests) =================
+[03:42:11] [PASSED] sysctl_test_api_dointvec_null_tbl_data
+[03:42:11] [PASSED] sysctl_test_api_dointvec_table_maxlen_unset
+[03:42:11] [PASSED] sysctl_test_api_dointvec_table_len_is_zero
+[03:42:11] [PASSED] sysctl_test_api_dointvec_table_read_but_position_set
+[03:42:11] [PASSED] sysctl_test_dointvec_read_happy_single_positive
+[03:42:11] [PASSED] sysctl_test_dointvec_read_happy_single_negative
+[03:42:11] [PASSED] sysctl_test_dointvec_write_happy_single_positive
+[03:42:11] [PASSED] sysctl_test_dointvec_write_happy_single_negative
+[03:42:11] [PASSED] sysctl_test_api_dointvec_write_single_less_int_min
+[03:42:11] [PASSED] sysctl_test_api_dointvec_write_single_greater_int_max
+[03:42:11] [PASSED] sysctl_test_register_sysctl_sz_invalid_extra_value
+[03:42:11] =================== [PASSED] sysctl_test ===================
+[03:42:11] ===================== exec (1 subtest) =====================
+[03:42:11] [PASSED] exec_test_bprm_stack_limits
+[03:42:11] ====================== [PASSED] exec =======================
+[03:42:11] ================== binfmt_elf (1 subtest) ==================
+[03:42:11] [PASSED] total_mapping_size_test
+[03:42:11] =================== [PASSED] binfmt_elf ====================
+[03:42:11] =================== string (20 subtests) ===================
+[03:42:11] [PASSED] string_test_memset16
+[03:42:11] [PASSED] string_test_memset32
+[03:42:11] [PASSED] string_test_memset64
+[03:42:11] [PASSED] string_test_strchr
+[03:42:11] [PASSED] string_test_strnchr
+[03:42:11] [PASSED] string_test_strspn
+[03:42:11] [PASSED] string_test_strcmp
+[03:42:11] [PASSED] string_test_strcmp_long_strings
+[03:42:11] [PASSED] string_test_strncmp
+[03:42:11] [PASSED] string_test_strncmp_long_strings
+[03:42:11] [PASSED] string_test_strcasecmp
+[03:42:11] [PASSED] string_test_strcasecmp_long_strings
+[03:42:11] [PASSED] string_test_strncasecmp
+[03:42:11] [PASSED] string_test_strncasecmp_long_strings
+[03:42:11] [PASSED] string_test_strscpy
+[03:42:11] [PASSED] string_test_strcat
+[03:42:11] [PASSED] string_test_strncat
+[03:42:11] [PASSED] string_test_strlcat
+[03:42:11] [PASSED] string_test_strtomem
+[03:42:11] [PASSED] string_test_memtostr
+[03:42:11] ===================== [PASSED] string ======================
+[03:42:11] =============== string_helpers (3 subtests) ================
+[03:42:11] [PASSED] test_get_size
+[03:42:11] [PASSED] test_upper_lower
+[03:42:11] [PASSED] test_unescape
+[03:42:11] ================= [PASSED] string_helpers ==================
+[03:42:11] =================== cpumask (6 subtests) ===================
+[03:42:11] [PASSED] test_cpumask_weight
+[03:42:11] [PASSED] test_cpumask_first
+[03:42:11] [PASSED] test_cpumask_last
+[03:42:11] [PASSED] test_cpumask_next
+[03:42:11] [PASSED] test_cpumask_iterators
+[03:42:11] [PASSED] test_cpumask_iterators_builtin
+[03:42:11] ===================== [PASSED] cpumask =====================
+[03:42:11] ================== iov_iter (12 subtests) ==================
+[03:42:11] [PASSED] iov_kunit_copy_to_kvec
+[03:42:11] [PASSED] iov_kunit_copy_from_kvec
+[03:42:11] [PASSED] iov_kunit_copy_to_bvec
+[03:42:11] [PASSED] iov_kunit_copy_from_bvec
+[03:42:11] [PASSED] iov_kunit_copy_to_folioq
+[03:42:11] [PASSED] iov_kunit_copy_from_folioq
+[03:42:11] [PASSED] iov_kunit_copy_to_xarray
+[03:42:11] [PASSED] iov_kunit_copy_from_xarray
+[03:42:11] [PASSED] iov_kunit_extract_pages_kvec
+[03:42:11] [PASSED] iov_kunit_extract_pages_bvec
+[03:42:11] [PASSED] iov_kunit_extract_pages_folioq
+[03:42:11] [PASSED] iov_kunit_extract_pages_xarray
+[03:42:11] ==================== [PASSED] iov_iter =====================
+[03:42:11] ==================== hash (2 subtests) =====================
+[03:42:11] [PASSED] test_string_or
+[03:42:11] [PASSED] test_hash_or
+[03:42:11] ====================== [PASSED] hash =======================
+[03:42:11] ================== list_sort (1 subtest) ===================
+[03:42:11] [PASSED] list_sort_test
+[03:42:11] ==================== [PASSED] list_sort ====================
+[03:42:11] =================== lib_sort (1 subtest) ===================
+[03:42:11] [PASSED] test_sort
+[03:42:11] ==================== [PASSED] lib_sort =====================
+[03:42:11] ============= kunit_executor_test (8 subtests) =============
+[03:42:11] [PASSED] parse_filter_test
+[03:42:11] [PASSED] filter_suites_test
+[03:42:11] [PASSED] filter_suites_test_glob_test
+[03:42:11] [PASSED] filter_suites_to_empty_test
+[03:42:11] [PASSED] parse_filter_attr_test
+[03:42:11] [PASSED] filter_attr_test
+[03:42:11] [PASSED] filter_attr_empty_test
+[03:42:11] [PASSED] filter_attr_skip_test
+[03:42:11] =============== [PASSED] kunit_executor_test ===============
+[03:42:11] ============ kunit-try-catch-test (2 subtests) =============
+[03:42:11] [PASSED] kunit_test_try_catch_successful_try_no_catch
+[03:42:11] [PASSED] kunit_test_try_catch_unsuccessful_try_does_catch
+[03:42:11] ============== [PASSED] kunit-try-catch-test ===============
+[03:42:11] ============ kunit-resource-test (12 subtests) =============
+[03:42:11] [PASSED] kunit_resource_test_init_resources
+[03:42:11] [PASSED] kunit_resource_test_alloc_resource
+[03:42:11] [PASSED] kunit_resource_test_destroy_resource
+[03:42:11] [PASSED] kunit_resource_test_remove_resource
+[03:42:11] [PASSED] kunit_resource_test_cleanup_resources
+[03:42:11] [PASSED] kunit_resource_test_proper_free_ordering
+[03:42:11] [PASSED] kunit_resource_test_static
+[03:42:11] [PASSED] kunit_resource_test_named
+[03:42:11] [PASSED] kunit_resource_test_action
+[03:42:11] [PASSED] kunit_resource_test_remove_action
+[03:42:11] [PASSED] kunit_resource_test_release_action
+[03:42:11] [PASSED] kunit_resource_test_action_ordering
+[03:42:11] =============== [PASSED] kunit-resource-test ===============
+[03:42:11] =============== kunit-log-test (2 subtests) ================
+[03:42:11] [PASSED] kunit_log_test
+[03:42:11] [PASSED] kunit_log_newline_test
+[03:42:11] ================= [PASSED] kunit-log-test ==================
+[03:42:11] ================ kunit_status (2 subtests) =================
+[03:42:11] [PASSED] kunit_status_set_failure_test
+[03:42:11] [PASSED] kunit_status_mark_skipped_test
+[03:42:11] ================== [PASSED] kunit_status ===================
+[03:42:11] ================ kunit_current (2 subtests) ================
+[03:42:11] [PASSED] kunit_current_test
+[03:42:11] [PASSED] kunit_current_fail_test
+[03:42:11] ================== [PASSED] kunit_current ==================
+[03:42:11] ================ kunit_device (3 subtests) =================
+[03:42:11] [PASSED] kunit_device_test
+[03:42:11] [PASSED] kunit_device_cleanup_test
+[03:42:11] [PASSED] kunit_device_driver_test
+[03:42:11] ================== [PASSED] kunit_device ===================
+[03:42:11] ======================= kunit_fault  =======================
+[03:42:11] ================== [SKIPPED] kunit_fault ===================
+[03:42:11] ============ kunit_platform_device (4 subtests) ============
+[03:42:11] [PASSED] kunit_platform_device_alloc_test
+[03:42:11] [PASSED] kunit_platform_device_add_test
+[03:42:11] [PASSED] kunit_platform_device_add_twice_fails_test
+[03:42:11] [PASSED] kunit_platform_device_add_cleans_up
+[03:42:11] ============== [PASSED] kunit_platform_device ==============
+[03:42:11] ============ kunit_platform_driver (2 subtests) ============
+[03:42:11] [PASSED] kunit_platform_driver_register_test
+[03:42:11] [PASSED] kunit_platform_device_prepare_wait_for_probe_completes_when_already_probed
+[03:42:11] ============== [PASSED] kunit_platform_driver ==============
+[03:42:11] ============= string-stream-test (12 subtests) =============
+[03:42:11] [PASSED] string_stream_managed_init_test
+[03:42:11] [PASSED] string_stream_unmanaged_init_test
+[03:42:11] [PASSED] string_stream_managed_free_test
+[03:42:11] [PASSED] string_stream_resource_free_test
+[03:42:11] [PASSED] string_stream_line_add_test
+[03:42:11] [PASSED] string_stream_variable_length_line_test
+[03:42:11] [PASSED] string_stream_append_test
+[03:42:11] [PASSED] string_stream_append_auto_newline_test
+[03:42:11] [PASSED] string_stream_append_empty_string_test
+[03:42:11] [PASSED] string_stream_no_auto_newline_test
+[03:42:11] [PASSED] string_stream_auto_newline_test
+[03:42:11] [PASSED] string_stream_performance_test
+[03:42:11] =============== [PASSED] string-stream-test ================
+[03:42:11] ================ kunit-assert (11 subtests) ================
+[03:42:11] [PASSED] kunit_test_is_literal
+[03:42:11] [PASSED] kunit_test_is_str_literal
+[03:42:11] [PASSED] kunit_test_assert_prologue
+[03:42:11] [PASSED] kunit_test_assert_print_msg
+[03:42:11] [PASSED] kunit_test_unary_assert_format
+[03:42:11] [PASSED] kunit_test_ptr_not_err_assert_format
+[03:42:11] [PASSED] kunit_test_binary_assert_format
+[03:42:11] [PASSED] kunit_test_binary_ptr_assert_format
+[03:42:11] [PASSED] kunit_test_binary_str_assert_format
+[03:42:11] [PASSED] kunit_test_assert_hexdump
+[03:42:11] [PASSED] kunit_test_mem_assert_format
+[03:42:11] ================== [PASSED] kunit-assert ===================
+[03:42:11] =================== example (9 subtests) ===================
+[03:42:11] [PASSED] example_simple_test
+[03:42:11] [SKIPPED] example_skip_test
+[03:42:11] [SKIPPED] example_mark_skipped_test
+[03:42:11] [PASSED] example_all_expect_macros_test
+[03:42:11] [PASSED] example_static_stub_test
+[03:42:11] [PASSED] example_static_stub_using_fn_ptr_test
+[03:42:11] [PASSED] example_priv_test
+[03:42:11] =================== example_params_test  ===================
+[03:42:11] [SKIPPED] example value 3
+[03:42:11] [PASSED] example value 2
+[03:42:11] [PASSED] example value 1
+[03:42:11] [SKIPPED] example value 0
+[03:42:11] =============== [PASSED] example_params_test ===============
+[03:42:11] [PASSED] example_slow_test
+[03:42:11] ===================== [PASSED] example =====================
+[03:42:11] ================= math-int_pow (1 subtest) =================
+[03:42:11] ====================== int_pow_test  =======================
+[03:42:11] [PASSED] Power of zero
+[03:42:11] [PASSED] Power of one
+[03:42:11] [PASSED] Base zero
+[03:42:11] [PASSED] Base one
+[03:42:11] [PASSED] Two squared
+[03:42:11] [PASSED] Two cubed
+[03:42:11] [PASSED] Five raised to the fifth power
+[03:42:11] [PASSED] Max base
+[03:42:11] [PASSED] Large result
+[03:42:11] ================== [PASSED] int_pow_test ===================
+[03:42:11] ================== [PASSED] math-int_pow ===================
+[03:42:11] ================== bitfields (2 subtests) ==================
+[03:42:11] [PASSED] test_bitfields_constants
+[03:42:11] [PASSED] test_bitfields_variables
+[03:42:11] ==================== [PASSED] bitfields ====================
+[03:42:11] ================== checksum (5 subtests) ===================
+[03:42:11] [PASSED] test_csum_fixed_random_inputs
+[03:42:11] [PASSED] test_csum_all_carry_inputs
+[03:42:11] [PASSED] test_csum_no_carry_inputs
+[03:42:11] [PASSED] test_ip_fast_csum
+[03:42:11] [PASSED] test_csum_ipv6_magic
+[03:42:11] ==================== [PASSED] checksum =====================
+[03:42:11] ================ util_macros.h (2 subtests) ================
+[03:42:11] [PASSED] test_find_closest
+[03:42:11] [PASSED] test_find_closest_descending
+[03:42:11] ================== [PASSED] util_macros.h ==================
+[03:42:11] ============== list-kunit-test (39 subtests) ===============
+[03:42:11] [PASSED] list_test_list_init
+[03:42:11] [PASSED] list_test_list_add
+[03:42:11] [PASSED] list_test_list_add_tail
+[03:42:11] [PASSED] list_test_list_del
+[03:42:11] [PASSED] list_test_list_replace
+[03:42:11] [PASSED] list_test_list_replace_init
+[03:42:11] [PASSED] list_test_list_swap
+[03:42:11] [PASSED] list_test_list_del_init
+[03:42:11] [PASSED] list_test_list_del_init_careful
+[03:42:11] [PASSED] list_test_list_move
+[03:42:11] [PASSED] list_test_list_move_tail
+[03:42:11] [PASSED] list_test_list_bulk_move_tail
+[03:42:11] [PASSED] list_test_list_is_head
+[03:42:11] [PASSED] list_test_list_is_first
+[03:42:11] [PASSED] list_test_list_is_last
+[03:42:11] [PASSED] list_test_list_empty
+[03:42:11] [PASSED] list_test_list_empty_careful
+[03:42:11] [PASSED] list_test_list_rotate_left
+[03:42:11] [PASSED] list_test_list_rotate_to_front
+[03:42:11] [PASSED] list_test_list_is_singular
+[03:42:11] [PASSED] list_test_list_cut_position
+[03:42:11] [PASSED] list_test_list_cut_before
+[03:42:11] [PASSED] list_test_list_splice
+[03:42:11] [PASSED] list_test_list_splice_tail
+[03:42:11] [PASSED] list_test_list_splice_init
+[03:42:11] [PASSED] list_test_list_splice_tail_init
+[03:42:11] [PASSED] list_test_list_entry
+[03:42:11] [PASSED] list_test_list_entry_is_head
+[03:42:11] [PASSED] list_test_list_first_entry
+[03:42:11] [PASSED] list_test_list_last_entry
+[03:42:11] [PASSED] list_test_list_first_entry_or_null
+[03:42:11] [PASSED] list_test_list_next_entry
+[03:42:11] [PASSED] list_test_list_prev_entry
+[03:42:11] [PASSED] list_test_list_for_each
+[03:42:11] [PASSED] list_test_list_for_each_prev
+[03:42:11] [PASSED] list_test_list_for_each_safe
+[03:42:11] [PASSED] list_test_list_for_each_prev_safe
+[03:42:11] [PASSED] list_test_list_for_each_entry
+[03:42:11] [PASSED] list_test_list_for_each_entry_reverse
+[03:42:11] ================= [PASSED] list-kunit-test =================
+[03:42:11] =================== hlist (18 subtests) ====================
+[03:42:11] [PASSED] hlist_test_init
+[03:42:11] [PASSED] hlist_test_unhashed
+[03:42:11] [PASSED] hlist_test_unhashed_lockless
+[03:42:11] [PASSED] hlist_test_del
+[03:42:11] [PASSED] hlist_test_del_init
+[03:42:11] [PASSED] hlist_test_add
+[03:42:11] [PASSED] hlist_test_fake
+[03:42:11] [PASSED] hlist_test_is_singular_node
+[03:42:11] [PASSED] hlist_test_empty
+[03:42:11] [PASSED] hlist_test_move_list
+[03:42:11] [PASSED] hlist_test_entry
+[03:42:11] [PASSED] hlist_test_entry_safe
+[03:42:11] [PASSED] hlist_test_for_each
+[03:42:11] [PASSED] hlist_test_for_each_safe
+[03:42:11] [PASSED] hlist_test_for_each_entry
+[03:42:11] [PASSED] hlist_test_for_each_entry_continue
+[03:42:11] [PASSED] hlist_test_for_each_entry_from
+[03:42:11] [PASSED] hlist_test_for_each_entry_safe
+[03:42:11] ====================== [PASSED] hlist ======================
+[03:42:11] ==================== klist (8 subtests) ====================
+[03:42:11] [PASSED] klist_test_add_tail
+[03:42:11] [PASSED] klist_test_add_head
+[03:42:11] [PASSED] klist_test_add_behind
+[03:42:11] [PASSED] klist_test_add_before
+[03:42:11] [PASSED] klist_test_del_refcount_greater_than_zero
+[03:42:11] [PASSED] klist_test_del_refcount_zero
+[03:42:11] [PASSED] klist_test_remove
+[03:42:11] [PASSED] klist_test_node_attached
+[03:42:11] ====================== [PASSED] klist ======================
+[03:42:11] ================== hashtable (9 subtests) ==================
+[03:42:11] [PASSED] hashtable_test_hash_init
+[03:42:11] [PASSED] hashtable_test_hash_empty
+[03:42:11] [PASSED] hashtable_test_hash_hashed
+[03:42:11] [PASSED] hashtable_test_hash_add
+[03:42:11] [PASSED] hashtable_test_hash_del
+[03:42:11] [PASSED] hashtable_test_hash_for_each
+[03:42:11] [PASSED] hashtable_test_hash_for_each_safe
+[03:42:11] [PASSED] hashtable_test_hash_for_each_possible
+[03:42:11] [PASSED] hashtable_test_hash_for_each_possible_safe
+[03:42:11] ==================== [PASSED] hashtable ====================
+[03:42:11] ================== bits-test (4 subtests) ==================
+[03:42:11] [PASSED] genmask_test
+[03:42:11] [PASSED] genmask_ull_test
+[03:42:11] [PASSED] genmask_u128_test
+[03:42:11] [PASSED] genmask_input_check_test
+[03:42:11] ==================== [PASSED] bits-test ====================
+[03:42:11] =================== cmdline (4 subtests) ===================
+[03:42:11] [PASSED] cmdline_test_noint
+[03:42:11] [PASSED] cmdline_test_lead_int
+[03:42:11] [PASSED] cmdline_test_tail_int
+[03:42:11] [PASSED] cmdline_test_range
+[03:42:11] ===================== [PASSED] cmdline =====================
+[03:42:11] ================== slub_test (9 subtests) ==================
+[03:42:11] [PASSED] test_clobber_zone
+[03:42:11] [PASSED] test_next_pointer
+[03:42:11] [PASSED] test_first_word
+[03:42:11] [PASSED] test_clobber_50th_byte
+[03:42:11] [PASSED] test_clobber_redzone_free
+[03:42:11] [PASSED] test_kmalloc_redzone_access
+[03:42:11] [SKIPPED] test_kfree_rcu
+[03:42:11] [PASSED] test_leak_destroy
+[03:42:11] [PASSED] test_krealloc_redzone_zeroing
+[03:42:11] ==================== [PASSED] slub_test ====================
+[03:42:11] =================== memcpy (6 subtests) ====================
+[03:42:11] [PASSED] memset_test
+[03:42:11] [PASSED] memcpy_test
+[03:42:11] [PASSED] memcpy_large_test
+[03:42:11] [PASSED] memmove_test
+[03:42:12] [PASSED] memmove_large_test
+[03:42:12] [PASSED] memmove_overlap_test
+[03:42:12] ===================== [PASSED] memcpy ======================
+[03:42:12] ================ is_signed_type (1 subtest) ================
+[03:42:12] [PASSED] is_signed_type_test
+[03:42:12] ================= [PASSED] is_signed_type ==================
+[03:42:12] ================== overflow (22 subtests) ==================
+[03:42:12] [PASSED] u8_u8__u8_overflow_test
+[03:42:12] [PASSED] s8_s8__s8_overflow_test
+[03:42:12] [PASSED] u16_u16__u16_overflow_test
+[03:42:12] [PASSED] s16_s16__s16_overflow_test
+[03:42:12] [PASSED] u32_u32__u32_overflow_test
+[03:42:12] [PASSED] s32_s32__s32_overflow_test
+[03:42:12] [PASSED] u64_u64__u64_overflow_test
+[03:42:12] [PASSED] s64_s64__s64_overflow_test
+[03:42:12] [PASSED] u32_u32__int_overflow_test
+[03:42:12] [PASSED] u32_u32__u8_overflow_test
+[03:42:12] [PASSED] u8_u8__int_overflow_test
+[03:42:12] [PASSED] int_int__u8_overflow_test
+[03:42:12] [PASSED] shift_sane_test
+[03:42:12] [PASSED] shift_overflow_test
+[03:42:12] [PASSED] shift_truncate_test
+[03:42:12] [PASSED] shift_nonsense_test
+[03:42:12] [PASSED] overflow_allocation_test
+[03:42:12] [PASSED] overflow_size_helpers_test
+[03:42:12] [PASSED] overflows_type_test
+[03:42:12] [PASSED] same_type_test
+[03:42:12] [PASSED] castable_to_type_test
+[03:42:12] [PASSED] DEFINE_FLEX_test
+[03:42:12] ==================== [PASSED] overflow =====================
+[03:42:12] ================= stackinit (65 subtests) ==================
+[03:42:12] [PASSED] test_u8_zero
+[03:42:12] [PASSED] test_u16_zero
+[03:42:12] [PASSED] test_u32_zero
+[03:42:12] [PASSED] test_u64_zero
+[03:42:12] [PASSED] test_char_array_zero
+[03:42:12] [PASSED] test_small_hole_zero
+[03:42:12] [PASSED] test_big_hole_zero
+[03:42:12] [PASSED] test_trailing_hole_zero
+[03:42:12] [PASSED] test_packed_zero
+[03:42:12] [PASSED] test_small_hole_dynamic_partial
+[03:42:12] [PASSED] test_big_hole_dynamic_partial
+[03:42:12] [PASSED] test_trailing_hole_dynamic_partial
+[03:42:12] [PASSED] test_packed_dynamic_partial
+[03:42:12] [PASSED] test_small_hole_assigned_dynamic_partial
+[03:42:12] [PASSED] test_big_hole_assigned_dynamic_partial
+[03:42:12] [PASSED] test_trailing_hole_assigned_dynamic_partial
+[03:42:12] [PASSED] test_packed_assigned_dynamic_partial
+[03:42:12] [PASSED] test_small_hole_static_partial
+[03:42:12] [PASSED] test_big_hole_static_partial
+[03:42:12] [PASSED] test_trailing_hole_static_partial
+[03:42:12] [PASSED] test_packed_static_partial
+[03:42:12] [PASSED] test_small_hole_static_all
+[03:42:12] [PASSED] test_big_hole_static_all
+[03:42:12] [PASSED] test_trailing_hole_static_all
+[03:42:12] [PASSED] test_packed_static_all
+[03:42:12] [PASSED] test_small_hole_dynamic_all
+[03:42:12] [PASSED] test_big_hole_dynamic_all
+[03:42:12] [PASSED] test_trailing_hole_dynamic_all
+[03:42:12] [PASSED] test_packed_dynamic_all
+[03:42:12] [PASSED] test_small_hole_runtime_partial
+[03:42:12] [PASSED] test_big_hole_runtime_partial
+[03:42:12] [PASSED] test_trailing_hole_runtime_partial
+[03:42:12] [PASSED] test_packed_runtime_partial
+[03:42:12] [PASSED] test_small_hole_runtime_all
+[03:42:12] [PASSED] test_big_hole_runtime_all
+[03:42:12] [PASSED] test_trailing_hole_runtime_all
+[03:42:12] [PASSED] test_packed_runtime_all
+[03:42:12] [PASSED] test_small_hole_assigned_static_partial
+[03:42:12] [PASSED] test_big_hole_assigned_static_partial
+[03:42:12] [PASSED] test_trailing_hole_assigned_static_partial
+[03:42:12] [PASSED] test_packed_assigned_static_partial
+[03:42:12] [PASSED] test_small_hole_assigned_static_all
+[03:42:12] [PASSED] test_big_hole_assigned_static_all
+[03:42:12] [PASSED] test_trailing_hole_assigned_static_all
+[03:42:12] [PASSED] test_packed_assigned_static_all
+[03:42:12] [PASSED] test_small_hole_assigned_dynamic_all
+[03:42:12] [PASSED] test_big_hole_assigned_dynamic_all
+[03:42:12] [PASSED] test_trailing_hole_assigned_dynamic_all
+[03:42:12] [PASSED] test_packed_assigned_dynamic_all
+[03:42:12] [SKIPPED] test_small_hole_assigned_copy
+[03:42:12] [SKIPPED] test_big_hole_assigned_copy
+[03:42:12] [SKIPPED] test_trailing_hole_assigned_copy
+[03:42:12] [PASSED] test_packed_assigned_copy
+[03:42:12] [PASSED] test_u8_none
+[03:42:12] [PASSED] test_u16_none
+[03:42:12] [PASSED] test_u32_none
+[03:42:12] [PASSED] test_u64_none
+[03:42:12] [PASSED] test_char_array_none
+[03:42:12] [SKIPPED] test_switch_1_none
+[03:42:12] [SKIPPED] test_switch_2_none
+[03:42:12] [PASSED] test_small_hole_none
+[03:42:12] [PASSED] test_big_hole_none
+[03:42:12] [PASSED] test_trailing_hole_none
+[03:42:12] [PASSED] test_packed_none
+[03:42:12] [PASSED] test_user
+[03:42:12] ==================== [PASSED] stackinit ====================
+[03:42:12] ================== fortify (26 subtests) ===================
+[03:42:12] [PASSED] fortify_test_known_sizes
+[03:42:12] [PASSED] fortify_test_control_flow_split
+[03:42:12] [PASSED] fortify_test_alloc_size_kmalloc_const
+[03:42:12] [PASSED] fortify_test_alloc_size_kmalloc_dynamic
+[03:42:12] [PASSED] fortify_test_alloc_size_vmalloc_const
+[03:42:12] [PASSED] fortify_test_alloc_size_vmalloc_dynamic
+[03:42:12] [PASSED] fortify_test_alloc_size_kvmalloc_const
+[03:42:12] [PASSED] fortify_test_alloc_size_kvmalloc_dynamic
+[03:42:12] [PASSED] fortify_test_alloc_size_devm_kmalloc_const
+[03:42:12] [PASSED] fortify_test_alloc_size_devm_kmalloc_dynamic
+[03:42:12] [PASSED] fortify_test_realloc_size
+[03:42:12] [PASSED] fortify_test_strlen
+[03:42:12] [PASSED] fortify_test_strnlen
+[03:42:12] [PASSED] fortify_test_strcpy
+[03:42:12] [PASSED] fortify_test_strncpy
+[03:42:12] [PASSED] fortify_test_strscpy
+[03:42:12] [PASSED] fortify_test_strcat
+[03:42:12] [PASSED] fortify_test_strncat
+[03:42:12] [PASSED] fortify_test_strlcat
+[03:42:12] [PASSED] fortify_test_memcpy
+[03:42:12] [PASSED] fortify_test_memmove
+[03:42:12] [PASSED] fortify_test_memscan
+[03:42:12] [PASSED] fortify_test_memchr
+[03:42:12] [PASSED] fortify_test_memchr_inv
+[03:42:12] [PASSED] fortify_test_memcmp
+[03:42:12] [PASSED] fortify_test_kmemdup
+[03:42:12] ===================== [PASSED] fortify =====================
+[03:42:12] =================== siphash (1 subtest) ====================
+[03:42:12] [PASSED] siphash_test
+[03:42:12] ===================== [PASSED] siphash =====================
+[03:42:12] ================== usercopy (4 subtests) ===================
+[03:42:12] [PASSED] usercopy_test_valid
+[03:42:12] [PASSED] usercopy_test_invalid
+[03:42:12] [PASSED] usercopy_test_check_nonzero_user
+[03:42:12] [PASSED] usercopy_test_copy_struct_from_user
+[03:42:12] ==================== [PASSED] usercopy =====================
+[03:42:12] ==================== crc16 (3 subtests) ====================
+[03:42:12] [PASSED] crc16_test_empty
+[03:42:12] [PASSED] crc16_test_combine
+[03:42:12] [PASSED] crc16_test_correctness
+[03:42:12] ====================== [PASSED] crc16 ======================
+[03:42:12] =============== qos-kunit-test (3 subtests) ================
+[03:42:12] [PASSED] freq_qos_test_min
+[03:42:12] [PASSED] freq_qos_test_maxdef
+[03:42:12] [PASSED] freq_qos_test_readd
+[03:42:12] ================= [PASSED] qos-kunit-test ==================
+[03:42:12] =============== property-entry (7 subtests) ================
+[03:42:12] [PASSED] pe_test_uints
+[03:42:12] [PASSED] pe_test_uint_arrays
+[03:42:12] [PASSED] pe_test_strings
+[03:42:12] [PASSED] pe_test_bool
+[03:42:12] [PASSED] pe_test_move_inline_u8
+[03:42:12] [PASSED] pe_test_move_inline_str
+[03:42:12] [PASSED] pe_test_reference
+[03:42:12] ================= [PASSED] property-entry ==================
+[03:42:12] ================= input_core (4 subtests) ==================
+[03:42:12] [PASSED] input_test_polling
+[03:42:12] [PASSED] input_test_timestamp
+[03:42:12] [PASSED] input_test_match_device_id
+[03:42:12] [PASSED] input_test_grab
+[03:42:12] =================== [PASSED] input_core ====================
+[03:42:12] ============================================================
+[03:42:12] Testing complete. Ran 387 tests: passed: 376, skipped: 11
+[03:42:12] Elapsed time: 27.663s total, 0.001s configuring, 24.940s building, 2.691s running
