@@ -5,7 +5,7 @@ System: NixOS & Ubuntu**
 ## NixOS
 
 <details>
-  <summary> A screenshot of Kernel: arch/x86/boot/bzImage is ready. </summary>
+  <summary> screenshot: Kernel: arch/x86/boot/bzImage is ready. </summary>
 
 ```bash
 make defconfig
@@ -18,7 +18,7 @@ Build Logs:
 </details>
 
 <details>
-  <summary> A screenshot of uname -r </summary>
+  <summary> screenshot: uname -r </summary>
 
 ```bash
   neofetch
