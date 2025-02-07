@@ -1,0 +1,4 @@
+mkdir -p /home/roronoa/risc-v-kernelci/linux-6.13.1/tools/objtool && make O=/home/roronoa/risc-v-kernelci/linux-6.13.1 subdir=tools/objtool --no-print-directory -C objtool 
+  CALL    scripts/checksyscalls.sh
+  INSTALL libsubcmd_headers
+Kernel: arch/x86/boot/bzImage is ready  (#1)

@@ -15,7 +15,7 @@
     # Define the custom kernel package
     customKernel = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
       argsOverride = rec {
-        # src = ./linux; #local source linux_6.12.10.tar.xz
+        # src = ./linux; #local source 
         src=pkgs.fetchFromGitHub {
           owner = "torvalds";
           repo = "linux";
@@ -33,12 +33,23 @@
       kernel = customKernel.kernel;  # Access the kernel derivation specifically
       default = kernel;             # Set the kernel as the default package
       stable = pkgs.callPackage ./stablelinux.nix { branch = "testing"; };
-      testing = pkgs.linuxKernel.kernels.linux_6_13;
+      # testing = pkgs.linuxPackages_testing; 
     };
     
     # a devshell to help me ensure dependencies are met
     devShells.x86_64-linux.default = pkgs.mkShell {
       buildInputs = with pkgs;[ 
+            alsa-lib.dev
+          libcap_ng.dev
+          libcap.dev
+          # libfuse
+          numactl.dev
+          libmnl
+          popt
+          glibc
+          glibc.dev
+          libcap
+          popt
           stdenv
            git
            gnumake
@@ -57,6 +68,22 @@
            lld_16
            llvmPackages_16.libllvm
       ];
+      
+      # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+
+      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [  
+          alsa-lib.dev
+          libcap_ng.dev
+          libcap.dev
+          # libfuse
+          numactl.dev
+          libmnl
+          popt
+          glibc
+          glibc.dev
+          libcap
+          popt
+            ]);
     };
 
 
