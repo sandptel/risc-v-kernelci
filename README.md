@@ -4,6 +4,28 @@ System: NixOS & Ubuntu**
 
 ## NixOS
 
+I updated the linux_latest kernel pacakge with `src= <linux-6.13.0-rc2 dir>` and custom mod Version inside of a flake file.
+```nix
+customKernel = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
+      argsOverride = rec {
+        src = ./linux-6.13.0-rc2; #local source 
+        version = "6.13.0";
+        modDirVersion = "6.13.0";
+      };
+    });
+in
+{
+    packages.x86_64-linux = rec {
+      kernel = customKernel.kernel;  # Access the kernel derivation specifically
+      default = kernel;             # Set the kernel as the default package
+    };
+}
+```
+Then imported my package to my system configuration 
+```nix
+boot.kernelPackages = inputs.customkernel.packages.${pkgs.system}.default;
+```
+
 <details>
   <summary> screenshot: Kernel: arch/x86/boot/bzImage is ready. </summary>
 
