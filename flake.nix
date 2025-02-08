@@ -15,7 +15,7 @@
     # Define the custom kernel package
     customKernel = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
       argsOverride = rec {
-        src = ./linux-6.13.1; #local source 
+        src = ./linux-6.13.0-rc2; #local source 
         # src=pkgs.fetchFromGitHub {
         #   owner = "torvalds";
         #   repo = "linux";
