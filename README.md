@@ -1,9 +1,17 @@
 # risc-v-kernelci
 **Kernel Version : 6.13.0-rc2 
 System: NixOS & Ubuntu**
-
-## NixOS
-
+### Tests:
+- [x] Kunittests 
+- [x] Kselftests
+- [ ] Kmemleak
+- [ ] KASAN
+- [ ] Code Coverage Tools (gcov, KCOV)
+- [ ] Dynamic Analysis Tools
+- [ ] Sparse
+- [ ] Smatch
+- [ ] Coccinelle
+## For NixOS (my current system)
 I updated the linux_latest kernel pacakge with `src= <linux-6.13.0-rc2 dir>` and custom mod Version inside of a flake file.
 ```nix
 customKernel = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
@@ -53,19 +61,55 @@ Build Logs:
 
 
 <details>
-  <summary> Kunit Tests Log </summary>
+  <summary> screenshot: selftests run </summary>
   
 ![swappy-20250206-034357](https://github.com/user-attachments/assets/ec1f7cf1-70c1-487e-93dc-db34257c9a83)
 
 </details>
 
-## Ubuntu
 <details>
-  <summary> Screenshot of `uname -r` </summary>
-  
+<summary>  Kernel Build and Testing Results Observations </summary>
+
+### **Build Log (`build.log`)**
+- **Errors:** 9  
+- **Findings:**  
+  - Compilation errors related to unresolved symbols in architecture-specific headers.  
+  - Fatal errors in inline assembly due to missing dependencies.  
+  - No warnings, indicating proper flag handling.  
+
+---
+
+### **Self-Test Logs (`selftest.log`, `selftests-2.log`)**
+- **Errors:** 13 (`selftest.log`), 7 (`selftests-2.log`)  
+- **Findings Before Fixing Dependencies:**  
+  - `syscalls`, `ioctl`, and `breakpoints` tests failed due to missing system calls.  
+  - `make[1]: Nothing to be done for 'all'` suggests missing test binaries.  
+  - `arm64` and `alsa` self-tests reported failures.  
+
+- **Findings After Fixing Dependencies:**  
+  - Resolved missing system calls, reducing failure count.  
+  - `arm64` and `breakpoints` tests still failing, likely needing kernel config changes.  
+
+---
+
+### **KUnit Test Log (`kunit-test.log`)**
+- **Errors:** 0  
+- **Findings:**  
+  - **Warnings:** Missing function prototypes in `iomap.c` (`-Wmissing-prototypes`).  
+  - **Failures:** 3 test cases failed in low-level I/O operations.  
+
+---
+
+### **Conclusion**
+- **Build log shows unresolved symbols in headers.**  
+- **Self-tests had missing system calls and binaries.** After fixing, some tests still failed due to kernel config issues.  
+- **KUnit tests ran with minor warnings but no critical errors.**  
+
+Further debugging is needed for `arm64` and `breakpoints` failures.
+
 </details>
   
-### virtual machine 
+## virtual machine 
 
 
 
