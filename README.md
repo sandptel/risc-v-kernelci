@@ -1,5 +1,6 @@
 # risc-v-kernelci
-**Kernel Version : 6.13.0-rc2 
+**Kernel Version : 6.13.0-rc2
+
 System: NixOS & Ubuntu**
 ### Tests:
 - [x] Kunittests 
@@ -11,6 +12,10 @@ System: NixOS & Ubuntu**
 - [ ] Sparse
 - [ ] Smatch
 - [ ] Coccinelle
+
+<details>
+  <summary> Made a nix package of built kernel for boot </summary>
+
 ## For NixOS (my current system)
 I updated the linux_latest kernel pacakge with `src= <linux-6.13.0-rc2 dir>` and custom mod Version inside of a flake file.
 ```nix
@@ -33,6 +38,8 @@ Then imported my package to my system configuration
 ```nix
 boot.kernelPackages = inputs.customkernel.packages.${pkgs.system}.default;
 ```
+
+</details>
 
 <details>
   <summary> screenshot: Kernel: arch/x86/boot/bzImage is ready. </summary>
