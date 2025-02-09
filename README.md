@@ -1,7 +1,7 @@
 # risc-v-kernelci
-**Kernel Version : 6.13.0-rc2
+**Kernel Version : 6.13.0-rc2**
 
-System: NixOS & Ubuntu**
+**System: NixOS & Ubuntu**
 ### Tests:
 - [x] Kunittests 
 - [x] Kselftests
@@ -9,12 +9,12 @@ System: NixOS & Ubuntu**
 - [ ] KASAN
 - [ ] Code Coverage Tools (gcov, KCOV)
 - [ ] Dynamic Analysis Tools
-- [ ] Sparse
+- [x] Sparse
 - [ ] Smatch
-- [ ] Coccinelle
+- [x] Coccinelle
 
 <details>
-  <summary> Made a nix package of built kernel for boot </summary>
+  <summary> custom-kernel boot in nixos? </summary>
 
 ## For NixOS (my current system)
 I updated the linux_latest kernel pacakge with `src= <linux-6.13.0-rc2 dir>` and custom mod Version inside of a flake file.
@@ -116,7 +116,6 @@ Further debugging is needed for `arm64` and `breakpoints` failures.
 
 </details>
   
-## virtual machine 
 
 
 
